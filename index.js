@@ -3,6 +3,9 @@ import * as store from "./store"; // Added 6.3
 import Navigo from "navigo"; // Added 6.3
 import { capitalize } from "lodash"; // Added 6.3
 import axios from "axios";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const router = new Navigo("/");
 
@@ -32,7 +35,7 @@ router.hooks({
         axios
           .get(
             // Replace the key provided here with your own key from openweathermap
-            `https://api.openweathermap.org/data/2.5/weather?q=st%20louis&appid=${yourkey}`
+            `https://api.openweathermap.org/data/2.5/weather?q=st%20louis&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`
           )
           .then(response => {
             const kelvinToFahrenheit = kelvinTemp =>
