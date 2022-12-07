@@ -1,7 +1,7 @@
-import { Header, Nav, Main, Footer } from "./components"; // Added 6.2
-import * as store from "./store"; // Added 6.3
-import Navigo from "navigo"; // Added 6.3
-import { capitalize } from "lodash"; // Added 6.3
+import { Header, Nav, Main, Footer } from "./components";
+import * as store from "./store";
+import Navigo from "navigo";
+import { capitalize } from "lodash";
 import axios from "axios";
 import dotenv from "dotenv";
 
@@ -34,12 +34,12 @@ router.hooks({
       case "Home":
         axios
           .get(
-            // Replace the key provided here with your own key from openweathermap
             `https://api.openweathermap.org/data/2.5/weather?q=st%20louis&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`
           )
           .then(response => {
             const kelvinToFahrenheit = kelvinTemp =>
               Math.round((kelvinTemp - 273.15) * (9 / 5) + 32);
+
             store.Home.weather = {};
             store.Home.weather.city = response.data.name;
             store.Home.weather.temp = kelvinToFahrenheit(
