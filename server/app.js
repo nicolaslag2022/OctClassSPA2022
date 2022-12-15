@@ -2,6 +2,7 @@
 const express = require("express");
 // Initialize the Express application
 const dotenv = require("dotenv");
+const mongoose = require("mongoose");
 
 dotenv.config();
 
@@ -14,6 +15,16 @@ const PORT = process.env.PORT || 4040; // we use || to provide a default value
 // }
 
 const app = express();
+
+const db = mongoose.connection;
+
+mongoose.connect(process.env.MONGODB);
+
+db.on("error", console.error.bind(console, "Connection Error:"));
+db.once(
+  "open",
+  console.log.bind(console, "Successfully opened connection to Mongo!")
+);
 
 const logging = (request, response, next) => {
   console.log(`${request.method} ${request.url} ${Date.now()}`);
@@ -45,4 +56,5 @@ app.post("/add", (request, response) => {
 
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
+
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
