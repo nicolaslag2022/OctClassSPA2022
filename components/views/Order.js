@@ -77,28 +77,8 @@ export default () => html`
         />
         <label for="top5">red pepper</label>
       </div>
-      <input
-        type="hidden"
-        name="customer"
-        id="customer"
-        value="Anonymous Customer"
-      />
+      <input type="hidden" name="customer" id="customer" value="Nick Goforth" />
       <input type="submit" name="submit" value="Submit Pizza" />
     </form>
   </section>
 `;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
