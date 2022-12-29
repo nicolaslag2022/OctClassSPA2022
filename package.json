@@ -5,7 +5,8 @@
   "scripts": {
     "parcel-build": "parcel build index.html && cp _redirects ./dist/",
     "serve": "parcel index.html",
-    "app:watch": "nodemon --watch ./server -e js ./server/app.js"
+    "app:watch": "nodemon --watch ./server -e js ./server/app.js",
+    "test": "jasmine --color"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "jasmine": "^4.5.0",
     "nodemon": "^2.0.20",
     "os-browserify": "^0.3.0",
     "parcel": "^2.8.0",
